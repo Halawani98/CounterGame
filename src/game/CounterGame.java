@@ -9,14 +9,15 @@ import java.util.List;
  * @author Anas Al-Halawani
  */
 public class CounterGame {
-    private static final List<String> players = new ArrayList<>(Arrays.asList("Ali", "Naser"));
+    private static final List<String> players = new ArrayList<>(Arrays.asList("Naser", "Ali"));
 
     public static String startGame(BigInteger n) {
+        if(n.longValue() < 0 || n.longValue() == 0) {
+            return "Invalid value of n!";
+        }
         int turn = 1;
         while(!n.equals(BigInteger.ONE)) {
-            if(n.testBit(0)) {
-                n = n.subtract(BigInteger.ONE);
-            } else if(isPowerOfTwo(n)) {
+            if(isPowerOfTwo(n)) {
                 n = n.divide(BigInteger.TWO);
             } else {
                 n = reduceToNextPower(n);
