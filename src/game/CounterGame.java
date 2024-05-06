@@ -9,13 +9,13 @@ import java.util.List;
  * @author Anas Al-Halawani
  */
 public class CounterGame {
-    private static final List<String> players = new ArrayList<>(Arrays.asList("Naser", "Ali"));
+    private static final List<String> players = new ArrayList<>(Arrays.asList("Ali", "Naser"));
 
     public static String startGame(BigInteger n) {
         if(n.longValue() < 0 || n.longValue() == 0) {
             return "Invalid value of n!";
         }
-        int turn = 1;
+        int turn = 0;
         while(!n.equals(BigInteger.ONE)) {
             if(isPowerOfTwo(n)) {
                 n = n.divide(BigInteger.TWO);
